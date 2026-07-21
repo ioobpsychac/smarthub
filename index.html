@@ -290,10 +290,11 @@
         spotlight(mainContent);
         /* Show a compact callout near the content */
         showCornerCallout('This is your <b>landing page</b>. Here you\'ll see a snapshot of your open tasks, recent messages from your team, notes from past meetings, and key team metrics at a glance.');
-        setTimeout(() => {
+        function() {
           tourStep++;
           stepOverviewButton();
-        }, 4000);
+        }
+        );
       }, 800);
       return;
     }
