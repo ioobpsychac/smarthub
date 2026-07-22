@@ -1,0 +1,246 @@
+/* ── Reset & Base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', sans-serif; background: #f7f7f6; color: #1a1a1a; height: 100vh; display: flex; overflow: hidden; font-size: 14px; }
+
+/* ── Sidebar ── */
+.sidebar { width: 220px; min-width: 220px; background: #1c1c1c; color: #ccc; display: flex; flex-direction: column; height: 100vh; position: relative; z-index: 1; }
+.sidebar-header { padding: 16px 14px 10px; border-bottom: 1px solid #2e2e2e; }
+.workspace-name { font-size: 13px; font-weight: 600; color: #fff; display: flex; align-items: center; gap: 8px; }
+.ws-dot { width: 22px; height: 22px; border-radius: 6px; background: #5b6af7; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: #fff; }
+.sidebar-section { padding: 12px 10px 4px; }
+.sidebar-section-label { font-size: 10px; text-transform: uppercase; letter-spacing: .08em; color: #666; padding: 0 4px 6px; }
+.sidebar-item { display: flex; align-items: center; gap: 8px; padding: 6px 8px; border-radius: 6px; cursor: pointer; color: #aaa; font-size: 13px; transition: background .15s; user-select: none; position: relative; }
+.sidebar-item:hover { background: #2a2a2a; color: #fff; }
+.sidebar-item.active { background: #2c2c2c; color: #fff; }
+.sidebar-item svg { width: 15px; height: 15px; flex-shrink: 0; opacity: .7; }
+.sidebar-item.active svg { opacity: 1; }
+.sidebar-avatar { margin-top: auto; padding: 12px 14px; border-top: 1px solid #2e2e2e; display: flex; align-items: center; gap: 8px; }
+.user-avatar { width: 28px; height: 28px; border-radius: 50%; background: #4e55c7; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; color: #fff; flex-shrink: 0; }
+.avatar-name { font-size: 12px; color: #ddd; }
+
+/* ── Main ── */
+.main { flex: 1; display: flex; flex-direction: column; height: 100vh; overflow: hidden; position: relative; z-index: 1; }
+.topbar { background: #fff; border-bottom: 1px solid #e8e8e6; padding: 0 20px; height: 48px; display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+.topbar-title { font-size: 14px; font-weight: 600; color: #1a1a1a; }
+.topbar-sep { color: #ccc; }
+.topbar-sub { font-size: 13px; color: #888; }
+.topbar-actions { margin-left: auto; display: flex; gap: 8px; }
+.btn-sm { font-size: 12px; padding: 5px 12px; border-radius: 6px; border: 1px solid #e0e0de; background: #fff; cursor: pointer; color: #444; font-family: inherit; transition: background .15s; }
+.btn-sm:hover { background: #f3f3f1; }
+.btn-primary { background: #5b6af7; color: #fff; border-color: #5b6af7; }
+.btn-primary:hover { background: #4a59e8; }
+
+/* ── Tabs ── */
+.tabs { background: #fff; border-bottom: 1px solid #e8e8e6; display: flex; padding: 0 20px; gap: 0; flex-shrink: 0; }
+.tab { padding: 10px 14px; font-size: 13px; color: #888; cursor: pointer; border-bottom: 2px solid transparent; transition: color .15s; user-select: none; }
+.tab:hover { color: #333; }
+.tab.active { color: #1a1a1a; border-bottom-color: #5b6af7; font-weight: 500; }
+
+/* ── Content ── */
+.content { flex: 1; overflow-y: auto; padding: 20px; display: flex; gap: 18px; }
+.col-main { flex: 1; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.col-side { width: 280px; flex-shrink: 0; display: flex; flex-direction: column; gap: 14px; }
+
+/* ── Cards ── */
+.card { background: #fff; border: 1px solid #e8e8e6; border-radius: 10px; overflow: hidden; }
+.card-header { padding: 12px 16px; border-bottom: 1px solid #f0f0ee; display: flex; align-items: center; justify-content: space-between; }
+.card-title { font-size: 13px; font-weight: 600; color: #1a1a1a; }
+.card-badge { font-size: 11px; background: #f0f0ee; color: #666; padding: 2px 8px; border-radius: 20px; }
+.card-body { padding: 14px 16px; }
+
+/* ── Tasks ── */
+.task-item { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; border-bottom: 1px solid #f5f5f3; }
+.task-item:last-child { border-bottom: none; }
+.task-check { width: 16px; height: 16px; border: 1.5px solid #ccc; border-radius: 4px; flex-shrink: 0; margin-top: 2px; }
+.task-check.done { background: #5b6af7; border-color: #5b6af7; display: flex; align-items: center; justify-content: center; }
+.task-check.done::after { content: '✓'; color: #fff; font-size: 10px; }
+.task-text { font-size: 13px; color: #333; line-height: 1.4; }
+.task-text.done { color: #aaa; text-decoration: line-through; }
+.task-meta { font-size: 11px; color: #aaa; margin-top: 2px; }
+.task-priority { font-size: 10px; padding: 2px 6px; border-radius: 4px; margin-left: auto; flex-shrink: 0; }
+.pri-high { background: #fef0ee; color: #c04a2a; }
+.pri-med { background: #fef7e6; color: #9a6a0a; }
+.pri-low { background: #f0f8ee; color: #3c7022; }
+
+/* ── Messages ── */
+.msg-item { display: flex; gap: 10px; padding: 8px 0; border-bottom: 1px solid #f5f5f3; }
+.msg-item:last-child { border-bottom: none; }
+.msg-av { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; color: #fff; flex-shrink: 0; }
+.msg-body { flex: 1; min-width: 0; }
+.msg-name { font-size: 12px; font-weight: 600; color: #444; }
+.msg-time { font-size: 11px; color: #aaa; margin-left: 6px; }
+.msg-text { font-size: 13px; color: #333; line-height: 1.4; margin-top: 2px; }
+
+/* ── Notes ── */
+.note-item { padding: 8px 0; border-bottom: 1px solid #f5f5f3; }
+.note-item:last-child { border-bottom: none; }
+.note-title { font-size: 13px; font-weight: 500; color: #333; }
+.note-preview { font-size: 12px; color: #888; margin-top: 3px; line-height: 1.4; }
+.note-date { font-size: 11px; color: #bbb; margin-top: 4px; }
+
+/* ── Scrollbar ── */
+.content::-webkit-scrollbar { width: 4px; }
+.content::-webkit-scrollbar-thumb { background: #ddd; border-radius: 4px; }
+
+/* ── Notif dot ── */
+.notif-dot { width: 7px; height: 7px; background: #ef4444; border-radius: 50%; margin-left: auto; }
+
+/* ══════════════════════════════════════
+   TOUR OVERLAY SYSTEM
+══════════════════════════════════════ */
+
+/* Full-screen grey overlay */
+#tourOverlay {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(30, 30, 30, 0.55);
+  z-index: 500;
+  pointer-events: none;
+}
+#tourOverlay.active { display: block; }
+
+/* A "hole" cut into the overlay for spotlight elements — done with box-shadow */
+.spotlight {
+  position: relative;
+  z-index: 600 !important;
+  pointer-events: auto !important;
+  border-radius: 8px;
+  box-shadow: 0 0 0 9999px rgba(30,30,30,0.55);
+}
+
+/* Sparky — the guide character */
+#sparky {
+  position: fixed;
+  z-index: 700;
+  display: flex;
+  align-items: flex-end;
+  gap: 14px;
+  transition: all 0.6s cubic-bezier(.34,1.3,.7,1);
+  /* start: centered */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+#sparky.corner {
+  left: 14px;
+  top: 14px;
+  transform: none;
+}
+#sparky.hidden { display: none; }
+
+/* The character SVG container */
+#sparky-char {
+  width: 90px;
+  height: 90px;
+  flex-shrink: 0;
+  transition: width 0.6s cubic-bezier(.34,1.3,.7,1), height 0.6s cubic-bezier(.34,1.3,.7,1);
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.25));
+}
+#sparky.corner #sparky-char { width: 36px; height: 36px; }
+
+/* Speech bubble */
+#sparky-bubble {
+  background: #fff;
+  border-radius: 14px;
+  padding: 16px 18px;
+  max-width: 340px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  position: relative;
+  transition: opacity 0.3s;
+}
+#sparky.corner #sparky-bubble { display: none; }
+
+/* Arrow tail on bubble pointing left */
+#sparky-bubble::before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  bottom: 20px;
+  border: 6px solid transparent;
+  border-right-color: #fff;
+}
+
+#sparky-bubble p {
+  font-size: 14px;
+  color: #1a1a1a;
+  line-height: 1.55;
+  font-family: 'Inter', sans-serif;
+}
+#sparky-bubble .sparky-btn {
+  margin-top: 12px;
+  background: #5b6af7;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: background .15s;
+}
+#sparky-bubble .sparky-btn:hover { background: #4a59e8; }
+
+/* Compact corner bubble — shows on hover when corner */
+#sparky-corner-bubble {
+  display: none;
+  position: fixed;
+  left: 58px;
+  top: 10px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-size: 12px;
+  color: #333;
+  box-shadow: 0 2px 12px rgba(0,0,0,.15);
+  z-index: 700;
+  max-width: 200px;
+  line-height: 1.4;
+  pointer-events: none;
+}
+
+/* Survey modal */
+#surveyModal {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(30,30,30,0.55);
+  z-index: 800;
+  align-items: center;
+  justify-content: center;
+}
+#surveyModal.active { display: flex; }
+.survey-box {
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px 32px;
+  width: 480px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 40px rgba(0,0,0,.2);
+}
+.survey-box h3 { font-size: 16px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; }
+.survey-box .survey-sub { font-size: 13px; color: #888; margin-bottom: 20px; }
+.survey-q { margin-bottom: 18px; }
+.survey-q label { font-size: 13px; font-weight: 500; color: #333; display: block; margin-bottom: 8px; }
+.survey-q .scale { display: flex; gap: 8px; align-items: center; }
+.survey-q .scale span { font-size: 11px; color: #888; }
+.survey-q .scale-btns { display: flex; gap: 6px; }
+.survey-q .scale-btns button {
+  width: 36px; height: 36px; border-radius: 8px; border: 1px solid #e0e0de;
+  background: #fff; cursor: pointer; font-size: 13px; font-weight: 500; color: #555;
+  transition: all .15s; font-family: 'Inter', sans-serif;
+}
+.survey-q .scale-btns button:hover { background: #f0f1ff; border-color: #5b6af7; color: #5b6af7; }
+.survey-q .scale-btns button.selected { background: #5b6af7; border-color: #5b6af7; color: #fff; }
+.survey-q textarea {
+  width: 100%; border: 1px solid #e0e0de; border-radius: 8px; padding: 8px 12px;
+  font-size: 13px; font-family: 'Inter', sans-serif; resize: vertical; min-height: 70px;
+  color: #333; outline: none;
+}
+.survey-q textarea:focus { border-color: #5b6af7; }
+.survey-submit {
+  width: 100%; padding: 10px; background: #5b6af7; color: #fff; border: none;
+  border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer;
+  font-family: 'Inter', sans-serif; margin-top: 6px; transition: background .15s;
+}
+.survey-submit:hover { background: #4a59e8; }
