@@ -45,8 +45,8 @@
         status:state.skipped[key].includes(q.id)?'skipped':answer!==null?'answered':state.presented.includes(q.id)?'unanswered':'not_presented',
         options:q.options||null,scale:q.type==='scale'?{min:1,max:q.max,low:q.low,high:q.high,mid:q.mid||null}:null};
     })));
-    return {schemaVersion:7,siteVersion:'2026-10-21.11',siteId:config.siteId,mode:config.mode,
-      qualtricsResponseId:state.qualtricsId,sessionId:state.sessionId,conditionNumber:state.condition,
+    return {schemaVersion:7,siteVersion:'2026-10-22.12',siteId:config.siteId,mode:config.mode,
+      isTest:Boolean(state.isTest),qualtricsResponseId:state.qualtricsId,sessionId:state.sessionId,conditionNumber:state.condition,
       condition:conditions[state.condition],startedAt:state.startedAt,completedAt:state.completedAt,
       status:state.stage,assignments:data.people.map((p,i)=>({employee:p.name,biography:state.bios[i]+1,photo:p.photo,pronouns:p.pronouns})),
       profilesViewed:state.visited,questionnaire1:{...state.answers.q1},questionnaire2:{...state.answers.q2},questionnaire3:{...state.answers.q3},

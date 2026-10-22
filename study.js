@@ -26,7 +26,7 @@
   }
   const conditionParam=C.fixedCondition || (/^[1-4]$/.test(params.get('c')||'')?Number(params.get('c')):null);
   const freshState = () => ({version:VERSION, condition:I.condition(C,location.search,()=>randomInt(4)+1),
-    qualtricsId,sessionId:crypto.randomUUID(),startedAt:new Date().toISOString(),completedAt:null,
+    qualtricsId,isTest:params.get('test')==='1'||/^R_TEST_/.test(qualtricsId||''),sessionId:crypto.randomUUID(),startedAt:new Date().toISOString(),completedAt:null,
     practiceReplies:[],presented:[],submission:null,
     bios:assignment('b'), stage:'welcome', visited:[], nextEmail:0,
     qPage:{q1:0,q2:0,q3:0}, answers:{q1:{},q2:{},q3:{}}, skipped:{q1:[],q2:[],q3:[]}, reviewed:{}, feedbackScroll:0});
