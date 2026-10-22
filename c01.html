@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="referrer" content="no-referrer">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Orbit SmartHub</title>
+<link rel="stylesheet" href="shared.css?v=11">
+<style>
+  .org-btn { display: inline-flex; align-items: center; gap: 6px; background: #f3f4ff; border: 1px solid #c5caf7; color: #4a55c7; font-size: 13px; font-weight: 500; padding: 10px 16px; border-radius: 8px; cursor: pointer; font-family: inherit; }
+  .org-btn svg { width: 16px; height: 16px; }
+</style>
+</head>
+<body>
+
+<!-- ── Sidebar ── -->
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <div class="workspace-name">
+      <div class="ws-dot">O</div>
+      Orbit Technologies
+    </div>
+  </div>
+  <div class="sidebar-section">
+    <div class="sidebar-section-label">Home</div>
+    <div class="sidebar-item active" id="nav-overview">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      Overview
+    </div>
+    <div class="sidebar-item" id="nav-tasks">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+      My Tasks
+    </div>
+    <div class="sidebar-item" id="nav-messages">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      Messages
+      <div class="notif-dot"></div>
+    </div>
+  </div>
+  <div class="sidebar-section">
+    <div class="sidebar-section-label">Workspace</div>
+    <div class="sidebar-item" id="nav-projects">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+      Q3 Client Rollouts
+    </div>
+    <div class="sidebar-item" id="nav-hub">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+      Client Services Hub
+    </div>
+    <div class="sidebar-item" id="nav-org">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="8" y="2" width="8" height="4" rx="1"/><rect x="1" y="16" width="6" height="4" rx="1"/><rect x="9" y="16" width="6" height="4" rx="1"/><rect x="17" y="16" width="6" height="4" rx="1"/><path d="M4 16v-3a1 1 0 011-1h14a1 1 0 011 1v3"/><path d="M12 12V6"/></svg>
+      Organizational Chart
+    </div>
+  </div>
+  <div class="sidebar-avatar">
+    <div class="user-avatar">YN</div>
+    <div class="avatar-name">You (Director)</div>
+  </div>
+</nav>
+
+<!-- ── Main ── -->
+<main class="main" id="workspace">
+  <div class="topbar">
+    <span class="topbar-title">Client Services Hub</span>
+    <span class="topbar-sep">/</span>
+    <span class="topbar-sub">Overview</span>
+    <div class="topbar-actions">
+      <button class="btn-sm">Filter</button>
+      <button class="btn-sm btn-primary">+ Add Task</button>
+    </div>
+  </div>
+  <div class="tabs">
+    <div class="tab active">Overview</div>
+    <div class="tab">Tasks</div>
+    <div class="tab">Notes</div>
+    <div class="tab">Messages</div>
+    <div class="tab">Files</div>
+  </div>
+
+  <div class="content" id="mainContent">
+    <div class="col-main">
+      <!-- Tasks card -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Active Tasks</span>
+          <span class="card-badge">7 open</span>
+        </div>
+        <div class="card-body">
+          <div class="task-item"><div class="task-check done"></div><div style="flex:1"><div class="task-text done">Send updated SLA docs to Meridian Corp</div><div class="task-meta">Completed · Jun 18</div></div><div class="task-priority pri-low">Low</div></div>
+          <div class="task-item"><div class="task-check"></div><div style="flex:1"><div class="task-text">Prepare materials for next week’s client introductions</div><div class="task-meta">Due Jun 24 · Assigned to you</div></div><div class="task-priority pri-high">High</div></div>
+          <div class="task-item"><div class="task-check"></div><div style="flex:1"><div class="task-text">Organize the shared resource library</div><div class="task-meta">Due Jun 27 · Assigned to Jordan Grace</div></div><div class="task-priority pri-med">Medium</div></div>
+          <div class="task-item"><div class="task-check"></div><div style="flex:1"><div class="task-text">Schedule the monthly team meeting</div><div class="task-meta">Due Jun 25 · Assigned to you</div></div><div class="task-priority pri-high">High</div></div>
+          <div class="task-item"><div class="task-check"></div><div style="flex:1"><div class="task-text">Review welcome packet — Vertex Data</div><div class="task-meta">Due Jul 1 · Assigned to Riley Rogers</div></div><div class="task-priority pri-med">Medium</div></div>
+          <div class="task-item"><div class="task-check"></div><div style="flex:1"><div class="task-text">Prepare KPI summary for VP presentation</div><div class="task-meta">Due Jun 30 · Assigned to you</div></div><div class="task-priority pri-med">Medium</div></div>
+          <div class="task-item"><div class="task-check"></div><div style="flex:1"><div class="task-text">Prepare the monthly team meeting agenda</div><div class="task-meta">Due Jun 23 · Assigned to Taylor Hill</div></div><div class="task-priority pri-high">High</div></div>
+        </div>
+      </div>
+      <!-- Messages preview -->
+      <div class="card">
+        <div class="card-header"><span class="card-title">Recent Messages</span><span class="card-badge" style="background:#fef0ee;color:#c04a2a;">4 unread</span></div>
+        <div class="card-body">
+          <div class="msg-item"><div class="msg-av" style="background:#6b7cf7;">JG</div><div class="msg-body"><div><span class="msg-name">Jordan Grace</span><span class="msg-time">9:41 AM</span></div><div class="msg-text">I’ve drafted the shared resource library layout. Would you prefer folders by document type or client name?</div></div></div>
+          <div class="msg-item"><div class="msg-av" style="background:#2db37a;">RR</div><div class="msg-body"><div><span class="msg-name">Riley Rogers</span><span class="msg-time">Yesterday 4:12 PM</span></div><div class="msg-text">The Vertex Data welcome packet is in progress. Should I send it before our introductory meeting?</div></div></div>
+          <div class="msg-item"><div class="msg-av" style="background:#e09020;">TH</div><div class="msg-body"><div><span class="msg-name">Taylor Hill</span><span class="msg-time">Today 11:55 AM</span></div><div class="msg-text">I’m preparing the monthly team meeting agenda. How would you like to use the final ten minutes?</div></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-side">
+      <!-- Org tile -->
+      <div class="card" id="orgCard">
+        <div class="card-header"><span class="card-title">Team Structure</span></div>
+        <div class="card-body" style="display:flex;flex-direction:column;gap:10px;">
+          <p style="font-size:12px;color:#888;line-height:1.5;">Your direct reporting hierarchy for the Client Services division.</p>
+          <button class="org-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="8" y="2" width="8" height="4" rx="1"/><rect x="1" y="16" width="6" height="4" rx="1"/><rect x="9" y="16" width="6" height="4" rx="1"/><rect x="17" y="16" width="6" height="4" rx="1"/><path d="M4 16v-3a1 1 0 011-1h14a1 1 0 011 1v3"/><path d="M12 12V6"/></svg>
+            View Organizational Chart
+          </button>
+        </div>
+      </div>
+      <!-- Notes -->
+      <div class="card">
+        <div class="card-header"><span class="card-title">Recent Notes</span><span class="card-badge">4</span></div>
+        <div class="card-body">
+          <div class="note-item"><div class="note-title">Monthly Team Meeting — Planning Notes</div><div class="note-preview">Agenda items include calendar updates, upcoming training sessions, and the shared resource library.</div><div class="note-date">Jun 20, 2025</div></div>
+          <div class="note-item"><div class="note-title">Q3 KPI Review — Director Notes</div><div class="note-preview">CSAT holding at 84%. Prepare the monthly account summary and update the presentation slides.</div><div class="note-date">Jun 17, 2025</div></div>
+          <div class="note-item"><div class="note-title">Team 1:1 Notes — Jordan Grace</div><div class="note-preview">Discussed options for organizing meeting templates, presentation slides, and client information sheets.</div><div class="note-date">Jun 16, 2025</div></div>
+        </div>
+      </div>
+      <!-- Snapshot stats -->
+      <div class="card">
+        <div class="card-header"><span class="card-title">Team Snapshot</span></div>
+        <div class="card-body" style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+          <div style="background:#f7f7f6;border-radius:8px;padding:10px 12px;"><div style="font-size:11px;color:#888;margin-bottom:4px;">Open tasks</div><div style="font-size:22px;font-weight:600;color:#1a1a1a;">7</div></div>
+          <div style="background:#f7f7f6;border-radius:8px;padding:10px 12px;"><div style="font-size:11px;color:#888;margin-bottom:4px;">Unread msgs</div><div style="font-size:22px;font-weight:600;color:#ef4444;">4</div></div>
+          <div style="background:#f7f7f6;border-radius:8px;padding:10px 12px;"><div style="font-size:11px;color:#888;margin-bottom:4px;">Active clients</div><div style="font-size:22px;font-weight:600;color:#1a1a1a;">12</div></div>
+          <div style="background:#f7f7f6;border-radius:8px;padding:10px 12px;"><div style="font-size:11px;color:#888;margin-bottom:4px;">Team CSAT</div><div style="font-size:22px;font-weight:600;color:#2db37a;">84%</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ── Tour Overlay ── -->
+<svg id="tourOverlay" aria-hidden="true"><path id="tourShade" fill-rule="evenodd"></path></svg>
+
+<!-- ── Sparky ── -->
+<div id="sparky">
+  <div id="sparky-char">
+    <!-- Sparky: a friendly rocket/star character -->
+    <svg viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+      <!-- Body -->
+      <ellipse cx="45" cy="48" rx="20" ry="26" fill="#5b6af7"/>
+      <!-- Face -->
+      <ellipse cx="45" cy="44" rx="14" ry="14" fill="#fff" opacity=".95"/>
+      <!-- Eyes -->
+      <circle cx="40" cy="41" r="3" fill="#1a1a1a"/>
+      <circle cx="50" cy="41" r="3" fill="#1a1a1a"/>
+      <!-- Eye shine -->
+      <circle cx="41.2" cy="39.8" r="1" fill="#fff"/>
+      <circle cx="51.2" cy="39.8" r="1" fill="#fff"/>
+      <!-- Smile -->
+      <path d="M39 47 Q45 52 51 47" fill="none" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round"/>
+      <!-- Antenna -->
+      <line x1="45" y1="22" x2="45" y2="30" stroke="#5b6af7" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="45" cy="20" r="4" fill="#fbbf24"/>
+      <!-- Wings -->
+      <ellipse cx="20" cy="52" rx="10" ry="6" fill="#818cf8" transform="rotate(-20 20 52)"/>
+      <ellipse cx="70" cy="52" rx="10" ry="6" fill="#818cf8" transform="rotate(20 70 52)"/>
+      <!-- Flame -->
+      <ellipse cx="45" cy="77" rx="8" ry="5" fill="#fb923c" opacity=".9"/>
+      <ellipse cx="45" cy="80" rx="5" ry="3" fill="#fbbf24" opacity=".8"/>
+      <!-- Stars around -->
+      <circle cx="14" cy="18" r="2" fill="#fbbf24" opacity=".7"/>
+      <circle cx="76" cy="22" r="1.5" fill="#fbbf24" opacity=".6"/>
+      <circle cx="10" cy="70" r="1.5" fill="#818cf8" opacity=".5"/>
+      <circle cx="80" cy="68" r="2" fill="#818cf8" opacity=".5"/>
+    </svg>
+  </div>
+  <div id="sparky-bubble" role="dialog" aria-label="Sparky’s guide">
+    <p id="sparky-text" aria-live="polite">Welcome back to Orbit SmartHub! I’m Sparky, your virtual assistant. We’ve made some changes to the layout since you were last here, so I’ll be taking you around to make sure you’re familiar with everything. I’ll also be asking you a few questions along the way to understand your experiences. Let’s get started!</p>
+    <button class="sparky-btn" id="sparky-btn">Got it →</button>
+  </div>
+</div>
+
+
+<div id="modal-root"></div>
+<button id="stop-study" class="stop-study">Stop simulation</button>
+<script>window.ORBIT_CONFIG = Object.freeze({"siteId": "c01", "fixedCondition": 2, "mode": "preview", "submissionProvider": "datapipe", "submissionEndpoint": "https://pipe.jspsych.org/api/data/", "dataPipeExperimentId": "Z3pjRitKkhK2", "feedbackUrl": "", "feedbackIdParameter": "orbit_source_response_id"});</script>
+<script src="integration.js?v=11"></script>
+<script src="study-data.js?v=11"></script>
+<script src="questionnaires.js?v=11"></script>
+<script src="study.js?v=11"></script>
+</body>
+</html>

@@ -2,16 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Orbit SmartHub</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="shared.css">
+<link rel="stylesheet" href="shared.css?v=11">
 <style>
   .org-btn { display: inline-flex; align-items: center; gap: 6px; background: #f3f4ff; border: 1px solid #c5caf7; color: #4a55c7; font-size: 13px; font-weight: 500; padding: 10px 16px; border-radius: 8px; cursor: pointer; font-family: inherit; }
   .org-btn svg { width: 16px; height: 16px; }
-  #tourOverlay { display: none; position: fixed; inset: 0; background: rgba(20,20,20,0.58); z-index: 500; }
-  #tourOverlay.active { display: block; }
 </style>
 </head>
 <body>
@@ -26,15 +23,15 @@
   </div>
   <div class="sidebar-section">
     <div class="sidebar-section-label">Home</div>
-    <div class="sidebar-item active" id="nav-overview" onclick="navBlock(event)">
+    <div class="sidebar-item active" id="nav-overview">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
       Overview
     </div>
-    <div class="sidebar-item" id="nav-tasks" onclick="navBlock(event)">
+    <div class="sidebar-item" id="nav-tasks">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
       My Tasks
     </div>
-    <div class="sidebar-item" id="nav-messages" onclick="navBlock(event)">
+    <div class="sidebar-item" id="nav-messages">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
       Messages
       <div class="notif-dot"></div>
@@ -42,17 +39,17 @@
   </div>
   <div class="sidebar-section">
     <div class="sidebar-section-label">Workspace</div>
-    <div class="sidebar-item" id="nav-projects" onclick="navBlock(event)">
+    <div class="sidebar-item" id="nav-projects">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
       Q3 Client Rollouts
     </div>
-    <div class="sidebar-item" id="nav-hub" onclick="navBlock(event)">
+    <div class="sidebar-item" id="nav-hub">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
       Client Services Hub
     </div>
-    <div class="sidebar-item" id="nav-org" onclick="goToOrg()">
+    <div class="sidebar-item" id="nav-org">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="8" y="2" width="8" height="4" rx="1"/><rect x="1" y="16" width="6" height="4" rx="1"/><rect x="9" y="16" width="6" height="4" rx="1"/><rect x="17" y="16" width="6" height="4" rx="1"/><path d="M4 16v-3a1 1 0 011-1h14a1 1 0 011 1v3"/><path d="M12 12V6"/></svg>
-      Org Chart
+      Organizational Chart
     </div>
   </div>
   <div class="sidebar-avatar">
@@ -62,7 +59,7 @@
 </nav>
 
 <!-- ── Main ── -->
-<div class="main">
+<main class="main" id="workspace">
   <div class="topbar">
     <span class="topbar-title">Client Services Hub</span>
     <span class="topbar-sep">/</span>
@@ -90,21 +87,21 @@
         </div>
         <div class="card-body">
           <div class="task-item"><div class="task-check done"></div><div style="flex:1"><div class="task-text done">Send updated SLA docs to Meridian Corp</div><div class="task-meta">Completed · Jun 18</div></div><div class="task-priority pri-low">Low</div></div>
-          <div class="task-item"><div class="task-check"></div><div style="flex:1"><div class="task-text">Follow up on Nexagen implementation issues post-launch</div><div class="task-meta">Due Jun 24 · Assigned to you</div></div><div class="task-priority pri-high">High</div></div>
-          <div class="task-item"><div class="task-check"></div><div style="flex:1"><div class="task-text">Draft Q3 client satisfaction survey template</div><div class="task-meta">Due Jun 27 · Assigned to Jordan</div></div><div class="task-priority pri-med">Medium</div></div>
-          <div class="task-item"><div class="task-check"></div><div style="flex:1"><div class="task-text">Schedule team sync re: Nexagen complaint resolution</div><div class="task-meta">Due Jun 25 · Assigned to you</div></div><div class="task-priority pri-high">High</div></div>
-          <div class="task-item"><div class="task-check"></div><div style="flex:1"><div class="task-text">Review onboarding checklist — Vertex Data</div><div class="task-meta">Due Jul 1 · Assigned to Riley</div></div><div class="task-priority pri-med">Medium</div></div>
+          <div class="task-item"><div class="task-check"></div><div style="flex:1"><div class="task-text">Prepare materials for next week’s client introductions</div><div class="task-meta">Due Jun 24 · Assigned to you</div></div><div class="task-priority pri-high">High</div></div>
+          <div class="task-item"><div class="task-check"></div><div style="flex:1"><div class="task-text">Organize the shared resource library</div><div class="task-meta">Due Jun 27 · Assigned to Jordan Grace</div></div><div class="task-priority pri-med">Medium</div></div>
+          <div class="task-item"><div class="task-check"></div><div style="flex:1"><div class="task-text">Schedule the monthly team meeting</div><div class="task-meta">Due Jun 25 · Assigned to you</div></div><div class="task-priority pri-high">High</div></div>
+          <div class="task-item"><div class="task-check"></div><div style="flex:1"><div class="task-text">Review welcome packet — Vertex Data</div><div class="task-meta">Due Jul 1 · Assigned to Riley Rogers</div></div><div class="task-priority pri-med">Medium</div></div>
           <div class="task-item"><div class="task-check"></div><div style="flex:1"><div class="task-text">Prepare KPI summary for VP presentation</div><div class="task-meta">Due Jun 30 · Assigned to you</div></div><div class="task-priority pri-med">Medium</div></div>
-          <div class="task-item"><div class="task-check"></div><div style="flex:1"><div class="task-text">Update internal incident log — Nexagen complaint filed</div><div class="task-meta">Due Jun 23 · Assigned to Taylor</div></div><div class="task-priority pri-high">High</div></div>
+          <div class="task-item"><div class="task-check"></div><div style="flex:1"><div class="task-text">Prepare the monthly team meeting agenda</div><div class="task-meta">Due Jun 23 · Assigned to Taylor Hill</div></div><div class="task-priority pri-high">High</div></div>
         </div>
       </div>
       <!-- Messages preview -->
       <div class="card">
         <div class="card-header"><span class="card-title">Recent Messages</span><span class="card-badge" style="background:#fef0ee;color:#c04a2a;">4 unread</span></div>
         <div class="card-body">
-          <div class="msg-item"><div class="msg-av" style="background:#6b7cf7;">JL</div><div class="msg-body"><div><span class="msg-name">Jordan Lee</span><span class="msg-time">9:41 AM</span></div><div class="msg-text">Hey, I've started the Q3 satisfaction survey draft. Want me to include an NPS section?</div></div></div>
-          <div class="msg-item"><div class="msg-av" style="background:#2db37a;">RT</div><div class="msg-body"><div><span class="msg-name">Riley Torres</span><span class="msg-time">Yesterday 4:12 PM</span></div><div class="msg-text">Vertex Data sent over their signed contract. I'll get the onboarding checklist started.</div></div></div>
-          <div class="msg-item"><div class="msg-av" style="background:#e09020;">TC</div><div class="msg-body"><div><span class="msg-name">Taylor Chen</span><span class="msg-time">Yesterday 11:55 AM</span></div><div class="msg-text">Logged the Nexagen incident in the system. Legal wants us to keep records tight on this one.</div></div></div>
+          <div class="msg-item"><div class="msg-av" style="background:#6b7cf7;">JG</div><div class="msg-body"><div><span class="msg-name">Jordan Grace</span><span class="msg-time">9:41 AM</span></div><div class="msg-text">I’ve drafted the shared resource library layout. Would you prefer folders by document type or client name?</div></div></div>
+          <div class="msg-item"><div class="msg-av" style="background:#2db37a;">RR</div><div class="msg-body"><div><span class="msg-name">Riley Rogers</span><span class="msg-time">Yesterday 4:12 PM</span></div><div class="msg-text">The Vertex Data welcome packet is in progress. Should I send it before our introductory meeting?</div></div></div>
+          <div class="msg-item"><div class="msg-av" style="background:#e09020;">TH</div><div class="msg-body"><div><span class="msg-name">Taylor Hill</span><span class="msg-time">Today 11:55 AM</span></div><div class="msg-text">I’m preparing the monthly team meeting agenda. How would you like to use the final ten minutes?</div></div></div>
         </div>
       </div>
     </div>
@@ -114,9 +111,9 @@
         <div class="card-header"><span class="card-title">Team Structure</span></div>
         <div class="card-body" style="display:flex;flex-direction:column;gap:10px;">
           <p style="font-size:12px;color:#888;line-height:1.5;">Your direct reporting hierarchy for the Client Services division.</p>
-          <button class="org-btn" onclick="goToOrg()">
+          <button class="org-btn">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="8" y="2" width="8" height="4" rx="1"/><rect x="1" y="16" width="6" height="4" rx="1"/><rect x="9" y="16" width="6" height="4" rx="1"/><rect x="17" y="16" width="6" height="4" rx="1"/><path d="M4 16v-3a1 1 0 011-1h14a1 1 0 011 1v3"/><path d="M12 12V6"/></svg>
-            View Org Chart
+            View Organizational Chart
           </button>
         </div>
       </div>
@@ -124,9 +121,9 @@
       <div class="card">
         <div class="card-header"><span class="card-title">Recent Notes</span><span class="card-badge">4</span></div>
         <div class="card-body">
-          <div class="note-item"><div class="note-title">Nexagen Incident — Summary & Next Steps</div><div class="note-preview">Sam confirmed premature go-live declaration. Client filed formal complaint. Elected to issue a formal warning in lieu of suspension.</div><div class="note-date">Jun 20, 2025</div></div>
-          <div class="note-item"><div class="note-title">Q3 KPI Review — Director Notes</div><div class="note-preview">CSAT holding at 84%. Two accounts flagged at risk: Nexagen, BluePeak.</div><div class="note-date">Jun 17, 2025</div></div>
-          <div class="note-item"><div class="note-title">Team 1:1 Notes — Jordan Lee</div><div class="note-preview">Expressed concern about team morale following Nexagen situation.</div><div class="note-date">Jun 16, 2025</div></div>
+          <div class="note-item"><div class="note-title">Monthly Team Meeting — Planning Notes</div><div class="note-preview">Agenda items include calendar updates, upcoming training sessions, and the shared resource library.</div><div class="note-date">Jun 20, 2025</div></div>
+          <div class="note-item"><div class="note-title">Q3 KPI Review — Director Notes</div><div class="note-preview">CSAT holding at 84%. Prepare the monthly account summary and update the presentation slides.</div><div class="note-date">Jun 17, 2025</div></div>
+          <div class="note-item"><div class="note-title">Team 1:1 Notes — Jordan Grace</div><div class="note-preview">Discussed options for organizing meeting templates, presentation slides, and client information sheets.</div><div class="note-date">Jun 16, 2025</div></div>
         </div>
       </div>
       <!-- Snapshot stats -->
@@ -141,10 +138,10 @@
       </div>
     </div>
   </div>
-</div>
+</main>
 
 <!-- ── Tour Overlay ── -->
-<div id="tourOverlay"></div>
+<svg id="tourOverlay" aria-hidden="true"><path id="tourShade" fill-rule="evenodd"></path></svg>
 
 <!-- ── Sparky ── -->
 <div id="sparky">
@@ -179,172 +176,19 @@
       <circle cx="80" cy="68" r="2" fill="#818cf8" opacity=".5"/>
     </svg>
   </div>
-  <div id="sparky-bubble">
-    <p id="sparky-text">Welcome back to <strong>Orbit SmartHub</strong>! We've made some changes to the layout since you've last been here. We'll also be asking you questions along the way to see if this format is helpful.</p>
-    <button class="sparky-btn" id="sparky-btn" onclick="tourNext()">Got it →</button>
+  <div id="sparky-bubble" role="dialog" aria-label="Sparky’s guide">
+    <p id="sparky-text" aria-live="polite">Welcome back to Orbit SmartHub! I’m Sparky, your virtual assistant. We’ve made some changes to the layout since you were last here, so I’ll be taking you around to make sure you’re familiar with everything. I’ll also be asking you a few questions along the way to understand your experiences. Let’s get started!</p>
+    <button class="sparky-btn" id="sparky-btn">Got it →</button>
   </div>
 </div>
 
-<script>
-  const params = new URLSearchParams(location.search);
-  const condition = parseInt(params.get('c') || '1');
 
-  let tourStep = 0;
-  const overlay = document.getElementById('tourOverlay');
-  const sparky = document.getElementById('sparky');
-  const sparkyText = document.getElementById('sparky-text');
-  const sparkyBtn = document.getElementById('sparky-btn');
-
-  const navOverview = document.getElementById('nav-overview');
-  const navOrg = document.getElementById('nav-org');
-  const mainContent = document.getElementById('mainContent');
-
-  function setOverlay(on) {
-    overlay.classList.toggle('active', on);
-  }
-
-  /* Remove all spotlight inline styles without touching appearance */
-  function clearSpotlights() {
-    ['nav-overview','nav-org','mainContent'].forEach(id => {
-      const el = document.getElementById(id);
-      if (el) {
-        el.style.removeProperty('z-index');
-        el.style.removeProperty('box-shadow');
-        el.style.removeProperty('position');
-        el.style.removeProperty('border-radius');
-      }
-    });
-  }
-
-  /* Spotlight a single sidebar nav item by punching through the overlay
-     with a huge outward box-shadow. The item itself looks identical —
-     only its z-index and shadow change, nothing in the page layout shifts. */
-  function spotlightNav(el) {
-    clearSpotlights();
-    setOverlay(true);
-    el.style.position = 'relative';
-    el.style.zIndex = '600';
-    el.style.borderRadius = '6px';
-    el.style.boxShadow = '0 0 0 9999px rgba(20,20,20,0.58)';
-  }
-
-  /* Bring main content above overlay without altering its appearance */
-  function spotlightContent(el) {
-    clearSpotlights();
-    setOverlay(true);
-    el.style.position = 'relative';
-    el.style.zIndex = '601';
-  }
-
-  function sparkyCenter(text, btnLabel) {
-    sparky.style.left = '50%';
-    sparky.style.top = '50%';
-    sparky.style.transform = 'translate(-50%, -50%)';
-    document.getElementById('sparky-char').style.width = '90px';
-    document.getElementById('sparky-char').style.height = '90px';
-    document.getElementById('sparky-bubble').style.display = '';
-    sparkyText.innerHTML = text;
-    sparkyBtn.textContent = btnLabel || 'Got it →';
-    sparkyBtn.style.display = '';
-  }
-
-  function sparkyCorner() {
-    sparky.style.transition = 'all 0.6s cubic-bezier(.34,1.3,.7,1)';
-    sparky.style.left = '14px';
-    sparky.style.top = '14px';
-    sparky.style.transform = 'none';
-    document.getElementById('sparky-char').style.width = '36px';
-    document.getElementById('sparky-char').style.height = '36px';
-    document.getElementById('sparky-bubble').style.display = 'none';
-  }
-
-  function navBlock(e) {
-    if (tourStep < 4) {
-      if (e) e.stopPropagation();
-      const old = document.getElementById('corner-tip');
-      if (old) old.remove();
-      const tip = document.createElement('div');
-      tip.id = 'corner-tip';
-      tip.style.cssText = 'position:fixed;left:58px;top:10px;background:#fff;border-radius:10px;padding:8px 14px;font-size:13px;color:#333;box-shadow:0 2px 14px rgba(0,0,0,.15);z-index:700;max-width:260px;line-height:1.5;font-family:Inter,sans-serif;border-left:3px solid #5b6af7;';
-      tip.textContent = 'Follow the tour first — click the highlighted item!';
-      document.body.appendChild(tip);
-      setTimeout(() => tip.remove(), 2500);
-    }
-  }
-
-  function goToOrg() {
-    if (tourStep === 4) {
-      window.location.href = 'org.html?c=' + condition;
-    } else {
-      navBlock(null);
-    }
-  }
-
-  /* ── Tour steps ── */
-  function tourNext() {
-    tourStep++;
-
-    if (tourStep === 1) {
-      /* Sparky shrinks to corner, overlay drops, page fully visible */
-      sparkyCorner();
-      setOverlay(false);
-      clearSpotlights();
-
-      setTimeout(() => {
-        /* Bring main content above overlay — page looks identical, just elevated */
-        spotlightContent(mainContent);
-        showCornerCallout(
-          'This is your <b>landing page</b>. Here you\'ll see a snapshot of your open tasks, recent messages from your team, notes from past meetings, and key team metrics at a glance.',
-          function() { tourStep++; stepOverviewButton(); }
-        );
-      }, 800);
-    }
-  }
-
-  function stepOverviewButton() {
-    /* Only Overview nav item is lit; everything else stays dark */
-    clearSpotlights();
-    spotlightNav(navOverview);
-    showCornerCallout(
-      'Whenever you want to return to this page, click the <b>Overview</b> button in the sidebar.',
-      function() { stepOrgNav(); }
-    );
-    navOverview.onclick = function() { stepOrgNav(); };
-  }
-
-  function stepOrgNav() {
-    /* Only Org Chart nav item is lit */
-    clearSpotlights();
-    spotlightNav(navOrg);
-    tourStep = 4;
-    showCornerCallout('Now let\'s check out your <b>Organizational Chart</b> — click it to continue!', null);
-    navOrg.onclick = function() { goToOrg(); };
-  }
-
-  function showCornerCallout(html, onNext) {
-    const old = document.getElementById('corner-tip');
-    if (old) old.remove();
-    const tip = document.createElement('div');
-    tip.id = 'corner-tip';
-    tip.style.cssText = 'position:fixed;left:58px;top:10px;background:#fff;border-radius:10px;padding:10px 14px;font-size:13px;color:#333;box-shadow:0 2px 14px rgba(0,0,0,.15);z-index:700;max-width:280px;line-height:1.5;font-family:Inter,sans-serif;';
-    tip.innerHTML = html;
-    if (onNext) {
-      const btn = document.createElement('button');
-      btn.textContent = 'Next →';
-      btn.style.cssText = 'display:block;margin-top:10px;background:#5b6af7;color:#fff;border:none;border-radius:6px;padding:6px 14px;font-size:12px;font-weight:500;cursor:pointer;font-family:Inter,sans-serif;';
-      btn.onclick = function() { tip.remove(); onNext(); };
-      tip.appendChild(btn);
-    }
-    document.body.appendChild(tip);
-  }
-
-  window.addEventListener('load', () => {
-    setOverlay(true);
-    sparkyCenter(
-      'Welcome back to <strong>Orbit SmartHub</strong>! We\'ve made some changes to the layout since you\'ve last been here. We\'ll also be asking you questions along the way to see if this format is helpful.',
-      'Show me around →'
-    );
-  });
-</script>
+<div id="modal-root"></div>
+<button id="stop-study" class="stop-study">Stop simulation</button>
+<script src="site-config.js?v=11"></script>
+<script src="integration.js?v=11"></script>
+<script src="study-data.js?v=11"></script>
+<script src="questionnaires.js?v=11"></script>
+<script src="study.js?v=11"></script>
 </body>
 </html>
